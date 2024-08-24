@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poster Maker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">Poster Builder</div>
+    </nav>
+
+    <div class="hero">
+      <h1>Welcome to Walid's Poster Builder</h1>
+      <p>Design your own posters easily with our tool!</p>
+    </div>
+
+    <div class="container" id="create">
+      <div class="controls">
+        <h2>Create Your Poster</h2>
+
+        <label for="headerText">Header:</label>
+        <input type="text" id="headerText" placeholder="Enter header text" />
+
+        <label for="descriptionText">Description:</label>
+        <textarea
+          id="descriptionText"
+          placeholder="Enter description"
+        ></textarea>
+
+        <label for="imageUploader">Upload Image:</label>
+        <input type="file" id="imageUploader" accept="image/*" />
+
+        <div class="alignment">
+          <label class="label">Header Alignment:</label>
+          <button class="btn" onclick="alignHeader('left')">Left</button>
+          <button class="btn" onclick="alignHeader('center')">Center</button>
+          <button class="btn" onclick="alignHeader('right')">Right</button>
+        </div>
+        <div class="alignment">
+          <label>Description Alignment:</label>
+          <button class="btn" onclick="alignDescription('left')">Left</button>
+          <button class="btn" onclick="alignDescription('center')">
+            Center
+          </button>
+          <button class="btn" onclick="alignDescription('right')">Right</button>
+        </div>
+
+        <label for="colorPicker">Select Header Color:</label>
+        <input type="color" id="colorPicker" />
+
+        <button id="downloadButton" class="btn-download">
+          Download Poster
+        </button>
+      </div>
+
+      <div class="preview" id="posterPreview">
+        <h1 id="posterHeader">Your Header</h1>
+        <img id="posterImage" alt="Image Preview" />
+        <p id="posterDescription">Your Description</p>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.7/dist/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
