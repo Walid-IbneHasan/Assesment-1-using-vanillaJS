@@ -16,49 +16,80 @@
       <p>Design your own posters easily with our tool!</p>
     </div>
 
-    <div class="container" id="create">
-      <div class="controls">
-        <h2>Create Your Poster</h2>
-
-        <label for="headerText">Header:</label>
-        <input type="text" id="headerText" placeholder="Enter header text" />
-
-        <label for="descriptionText">Description:</label>
-        <textarea
-          id="descriptionText"
-          placeholder="Enter description"
-        ></textarea>
-
-        <label for="imageUploader">Upload Image:</label>
-        <input type="file" id="imageUploader" accept="image/*" />
-
-        <div class="alignment">
-          <label class="label">Header Alignment:</label>
-          <button class="btn" onclick="alignHeader('left')">Left</button>
-          <button class="btn" onclick="alignHeader('center')">Center</button>
-          <button class="btn" onclick="alignHeader('right')">Right</button>
-        </div>
-        <div class="alignment">
-          <label>Description Alignment:</label>
-          <button class="btn" onclick="alignDescription('left')">Left</button>
-          <button class="btn" onclick="alignDescription('center')">
-            Center
+    <div class="button-container">
+      <button class="toggle-btn" onclick="toggleControl('headerControl')">
+        Header
+      </button>
+      <button class="toggle-btn" onclick="toggleControl('imageControl')">
+        Image
+      </button>
+      <button class="toggle-btn" onclick="toggleControl('descriptionControl')">
+        Description
+      </button>
+    </div>
+    <div class="container-grid">
+      <div class="container" id="create">
+        <div class="controls" id="headerControl">
+          <label for="headerText">Header:</label>
+          <input type="text" id="headerText" placeholder="Enter header text" />
+          <div class="alignment">
+            <label class="label">Header Alignment:</label> <br />
+            <button class="btn" onclick="alignHeader('left')">Left</button>
+            <button class="btn" onclick="alignHeader('center')">Center</button>
+            <button class="btn" onclick="alignHeader('right')">Right</button>
+          </div>
+          <label for="colorPickerHeader">Select Header Color:</label>
+          <input type="color" id="colorPickerHeader" />
+          <button class="close-btn" onclick="toggleControl('headerControl')">
+            &times;
           </button>
-          <button class="btn" onclick="alignDescription('right')">Right</button>
         </div>
 
-        <label for="colorPicker">Select Header Color:</label>
-        <input type="color" id="colorPicker" />
+        <div class="controls" id="imageControl">
+          <label for="imageUploader">Upload Image:</label>
+          <input type="file" id="imageUploader" accept="image/*" />
+          <button class="close-btn" onclick="toggleControl('imageControl')">
+            &times;
+          </button>
+        </div>
 
-        <button id="downloadButton" class="btn-download">
-          Download Poster
-        </button>
+        <div class="controls" id="descriptionControl">
+          <label for="descriptionText">Description:</label>
+          <textarea
+            id="descriptionText"
+            placeholder="Enter description"
+          ></textarea>
+          <div class="alignment">
+            <label>Description Alignment:</label> <br />
+            <button class="btn" onclick="alignDescription('left')">Left</button>
+            <button class="btn" onclick="alignDescription('center')">
+              Center
+            </button>
+            <button class="btn" onclick="alignDescription('right')">
+              Right
+            </button>
+          </div>
+          <label for="colorPickerDescription">Select Description Color:</label>
+          <input type="color" id="colorPickerDescription" />
+          <button
+            class="close-btn"
+            onclick="toggleControl('descriptionControl')"
+          >
+            &times;
+          </button>
+        </div>
       </div>
-
-      <div class="preview" id="posterPreview">
-        <h1 id="posterHeader">Your Header</h1>
-        <img id="posterImage" alt="Image Preview" />
-        <p id="posterDescription">Your Description</p>
+      <div class="container-sec-grid">
+        <div class="preview" id="posterPreview">
+          <h1 id="posterHeader">Your Header</h1>
+          <img id="posterImage" alt="Image Preview" />
+          <p id="posterDescription">Your Description</p>
+        </div>
+        <div class="btn-div">
+          <button id="downloadButton" class="btn-download">
+            Download Poster
+          </button>
+        </div>
       </div>
     </div>
 

@@ -5,8 +5,17 @@ const imageUploader = document.getElementById("imageUploader");
 const posterHeader = document.getElementById("posterHeader");
 const posterImage = document.getElementById("posterImage");
 const posterDescription = document.getElementById("posterDescription");
-const colorPicker = document.getElementById("colorPicker");
+const colorPickerHeader = document.getElementById("colorPickerHeader");
+const colorPickerDescription = document.getElementById(
+  "colorPickerDescription"
+);
 const downloadButton = document.getElementById("downloadButton");
+
+// Toggle control visibility
+function toggleControl(controlId) {
+  const control = document.getElementById(controlId);
+  control.style.display = control.style.display === "block" ? "none" : "block";
+}
 
 // For preview
 headerInput.addEventListener("input", () => {
@@ -26,22 +35,25 @@ imageUploader.addEventListener("change", (e) => {
   reader.readAsDataURL(file);
 });
 
-colorPicker.addEventListener("input", () => {
-  posterHeader.style.color = colorPicker.value;
+colorPickerHeader.addEventListener("input", () => {
+  posterHeader.style.color = colorPickerHeader.value;
 });
 
-// Header Alignment
+colorPickerDescription.addEventListener("input", () => {
+  posterDescription.style.color = colorPickerDescription.value;
+});
+
+// Header and Description Alignment
 function alignHeader(alignment) {
   posterHeader.style.textAlign = alignment;
 }
 
-// Description Alignment
 function alignDescription(alignment) {
   posterDescription.style.textAlign = alignment;
 }
 
 // Download poster as image
-downloadButton.addEventListener("click", () => {
+document.getElementById("downloadButton").addEventListener("click", () => {
   const posterPreview = document.getElementById("posterPreview");
   html2canvas(posterPreview).then((canvas) => {
     const link = document.createElement("a");
